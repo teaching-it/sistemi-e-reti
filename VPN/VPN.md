@@ -125,7 +125,7 @@ R1(config-isakmp)# hash sha
 R1(config-isakmp)# group 2
 R1(config-isakmp)# authentication pre-share
 R1(config-isakmp)# exit
-R1(config)# crypto isakmp key 123pass address 10.2.2.2
+R1(config)# crypto isakmp key 123pass address 2.2.2.1
 ```
 
 Analizziamo nel dettaglio ciascun comando (viene prima riportato il comando e una breve descrizione a seguire).
@@ -165,10 +165,10 @@ R1(config-isakmp)# authentication pre-share
 Quest'ultima opzione della procedura avviata con il comando `crypto isakmp policy 10`, definisce la metodologia di autenticazione: **pre-share**, nel nostro caso, ovvero chiavi precondivise. Sebbene le chiavi precondivise siano il metodo meno sicuro, sono anche le più comunemente utilizzate per autenticare i peer VPN, grazie alla loro facilità e rapidità nella configurazione.
 
 ```bash
-R1(config)# crypto isakmp key 123key address 10.2.2.2
+R1(config)# crypto isakmp key 123key address 2.2.2.1
 ```
 
-Quest'ultimo comando della Fase 1 definisce due elementi fondamentali: la chiave precondivisa (123key) e l'indirizzo IP del peer coinvolto nel tunnel VPN (10.2.2.2).
+Quest'ultimo comando della Fase 1 definisce due elementi fondamentali: la chiave precondivisa (123key) e l'indirizzo IP del peer coinvolto nel tunnel VPN (2.2.2.1).
 
 #### **Fase 2**
 
@@ -182,12 +182,12 @@ IPSec SA comprende una serie di specifiche che indicano al peer la tipologia di 
 Di seguito sono riportati i comandi necessari al completamento della Fase 2.
 
 ```bash
-R1(config)# crypto ipsec transform-set VPN-SET esp-3des esp-sha-hmac
+R1(config)# crypto ipsec transform-set VPN-SET esp-aes esp-sha-hmac
 R1(config)# crypto map VPN-MAP 10 ipsec-isakmp
 R1(config-crypto-map)# description VPN connection to R3
 R1(config-crypto-map)# match address 110
 R1(config-crypto-map)# set transform-set VPN-SET
-R1(config-crypto-map)# set peer 10.2.2.2
+R1(config-crypto-map)# set peer 2.2.2.1
 R1(config-crypto-map)# exit
 ```
 
@@ -242,7 +242,7 @@ R1(config-crypto-map)# set transform-set VPN-SET
 Le trasformazioni di sicurezza applicate al flusso di dati sono quelle definite nel transform-set denominato VPN-SET.
 
 ```bash
-R1(config-crypto-map)# set peer 10.2.2.2
+R1(config-crypto-map)# set peer 2.2.2.1
 ```
 
 Indirizzo IP del peer remoto, con cui si intende instaurare il VPN tunnel.
