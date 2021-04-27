@@ -172,19 +172,19 @@ Quest'ultimo comando della Fase 1 definisce due elementi fondamentali: la chiave
 
 #### **Fase 2**
 
-Al termine della Fase 1 è stata correttamente stabilità una ISAKMP Security Association, quindi esiste un canale sicuro tra i due peers, protetto dagli algoritmi crittografici scelti. Inoltre i due gateway VPN si sono autenticati vicendevolmente.
+Al termine della Fase 1 è stata correttamente stabilità una ISAKMP Security Association, quindi esiste un canale sicuro tra i due peers, protetto dagli algoritmi crittografici scelti. Inoltre, i due gateway VPN si sono autenticati vicendevolmente.
 
 Utilizzando il canale sicuro ISAKMP, i due host possono ora negoziare la IPSec Security Association, ovvero
 l'insieme dei parametri che permettono di costruire il tunnel IPSec. Questa fase è detta Quick Mode o Fase 2.
 
-IPSec SA comprende una serie di specifiche che indicano al peer la tipologia di traffico da inviare tramite il tunnel VPN e come crittografare e autenticare tale traffico.
+IPSec SA comprende una serie di specifiche che indicano al peer la tipologia di traffico da inviare tramite il tunnel VPN, e come crittografare e autenticare tale traffico.
 
 Di seguito sono riportati i comandi necessari al completamento della Fase 2.
 
 ```bash
 R1(config)# crypto ipsec transform-set VPN-SET esp-aes esp-sha-hmac
 R1(config)# crypto map VPN-MAP 10 ipsec-isakmp
-R1(config-crypto-map)# description VPN connection to R3
+R1(config-crypto-map)# description VPN connection to R2
 R1(config-crypto-map)# match address 110
 R1(config-crypto-map)# set transform-set VPN-SET
 R1(config-crypto-map)# set peer 2.2.2.1
@@ -224,7 +224,7 @@ Le tre specifiche sono dettagliate di seguito.
 In particolare: `crypto map VPN-MAP` definisce una mappa crittografica denominata VPN-MAP, posizionata nell'elenco delle crypto map disponibili in posizione `10` e che, chiaramente, si poggia sulla suite `ipsec-isakmp`.
 
 ```bash
-R1(config-crypto-map)# description VPN connection to R3
+R1(config-crypto-map)# description VPN connection to R2
 ```
 
 Definisce una semplice etichetta testuale.
