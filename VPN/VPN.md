@@ -268,10 +268,10 @@ R1(config)# access-list 110 permit ip 192.168.0.0 0.0.0.255 192.168.1.0 0.0.0.25
 
 Inizialmente, potremmo erroneamente supporre sia sufficiente definire una regola di instradamento avente le seguenti caratteristiche (ricorda che stiamo parlando del router R1 e che una regola speculare dovrebbe essere definita su R2):
 
-    - Network: 2.2.2.0
-    - Mask: 255.255.255.252
-    - Next Hop: 1.1.1.2
-    
+- Network: 2.2.2.0
+- Mask: 255.255.255.252
+- Next Hop: 1.1.1.2
+
 Ciò nonostante, una regola così definita, non è esaustiva. Perché? Per rispondere a questa domanda è necessario comprendere più nel dettaglio la logica dei vari moduli che orchestrano il funzionamento di un router Cisco.
 
 Senza entrare nei dettagli, ci è sufficiente sapere che il modulo responsabile delle attività di routing (ovvero quel particolare componente software che, dato un pacchetto IP, stabilisce l'interfaccia di uscita verso cui dovrà essere instradato), viene eseguito **prima** del modulo **crypto**, responsabile delle operazioni di gestione del tunnel VPN IPSec e quindi del transito dei dati al suo interno.
@@ -280,15 +280,15 @@ Ciò significa che, affinché sia possibile comunicare con un host della rete pr
 
 Dovremo dunque aggiungere:
 
-    - Network: 192.168.1.0
-    - Mask: 255.255.255.0
-    - Next Hop: 1.1.1.2
+- Network: 192.168.1.0
+- Mask: 255.255.255.0
+- Next Hop: 1.1.1.2
 
 In alternativa, è possibile definire una regola di instradamento che comprenda ambedue (regola di default):
 
-    - Network: 0.0.0.0
-    - Mask: 0.0.0.0
-    - Next Hop: 1.1.1.2
+- Network: 0.0.0.0
+- Mask: 0.0.0.0
+- Next Hop: 1.1.1.2
 
 ### **Troubleshooting e verifica**
 
