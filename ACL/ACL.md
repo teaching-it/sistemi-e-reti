@@ -73,7 +73,7 @@ R(config-if)#ip access-group 10 in
 
 Il comportamento complessivo associato all'interfaccia, ovvero la sua policy di filtraggio, sarà il seguente:
 
-*permetti tutto il traffico in transito dall'interfaccia GigabitEthernet0/0 e, in particolare, i pacchetti in ingresso il cui indirizzo IP sorgente è 192.168.2.1; nega tutto il resto.*
+*permetti il traffico in transito dall'interfaccia GigabitEthernet0/0 e, in particolare, i pacchetti in ingresso il cui indirizzo IP sorgente è 192.168.2.1; nega tutto il resto.*
 
 Per eliminare l'associazione:
 
@@ -84,6 +84,14 @@ R(config-if)#no ip access-group 10 in
 
 ## Visualizzazione
 
+Per visualizzare i dettagli di una specifica ACL (e il numero eventuale di pacchetti bloccati o permessi):
+
 ```bash
 R#show access-lists 110
+```
+
+Per visualizzare i dettagli di tutte le ACL presenti:
+
+```bash
+R#show access-lists
 ```
