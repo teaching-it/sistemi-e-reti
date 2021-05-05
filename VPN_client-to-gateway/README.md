@@ -2,11 +2,11 @@
 
 Mentre in una VPN site-to-site sono i router di confine (detti peer o VPN gateway) a negoziare e ad instaurare il tunnel, in una VPN client-to-gateway gli attori coinvolti sono un router e un client.
 
-La suite di elementi coinvolti (protocolli, algoritmi crittografici, funzioni di hash) è pressoché la stessa di una VPN site-to-site. Per una rassegna più esaustiva, si rimanda quindi all'altra trattazione.
+La suite di tecnologie interessate (protocolli, algoritmi crittografici, funzioni di hash) è pressoché la stessa di una VPN site-to-site. Per una rassegna più esaustiva, si rimanda quindi all'altra trattazione.
 
 ## Cisco IOS
 
-Di seguito sono elencati i comandi necessari alla configurazione della VPN: rispetto alla topologia impiegata nell'esercitazione, debbono essere eseguiti sul router coinvolto nel tunnel, ovvero R2.
+Di seguito sono elencati i comandi necessari alla configurazione della VPN: rispetto alla topologia impiegata nell'esercitazione, debbono essere eseguiti sul router R2.
 
 Attiviamo la modalità di configurazione:
 
