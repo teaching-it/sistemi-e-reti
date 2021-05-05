@@ -2,7 +2,11 @@
 
 ## 1. Glossario
 
-Come prima cosa vi riporto i principali elementi coinvolti (ed una breve descrizione per ciascuno), molti dei quali dovrebbero già risultarvi familiari. Sì, sono in inglese! Considerando che la maggior parte della documentazione relativa al mondo in IT è, appunto, in inglese, vi chiedo un piccolo sforzo in tal senso.
+Le VPN basano il loro funzionamento su un'ampia suite di tecnologie (protocolli, algoritmi crittografici, funzioni crittografiche di hash).
+
+Come prima cosa vi riporto i principali elementi coinvolti (ed una breve descrizione per ciascuno), molti dei quali dovrebbero già risultarvi familiari. 
+
+Sì, il testo è in inglese! Considerando che la maggior parte della documentazione relativa al mondo in IT è, appunto, in inglese, vi chiedo un piccolo sforzo in tal senso.
 
 ### Encryption Algorithms
 
@@ -59,7 +63,7 @@ Defined in RFC 2402. To provide security, AH adds authentication information to 
 
 Defined in RFC 2406. ESP (Encapsulating Security Payload) provides authentication and encryption of data. ESP takes the original payload of a data packet and replaces it with encrypted data. It adds integrity checks to make sure that the data is not altered in transit, and that the data came from the proper source. ESP is more secure than AH. Mobile VPN with IPSec always uses ESP.
 
-## 2. Cisco CLI
+## 2. Cisco IOS
 
 Procederemo ad una configurazione di tipo **VPN site-to-site** in cui i router di frontiera, posti alle estremità del tunnel, svolgono il ruolo di **IPsec peers**, altresì detti **VPN gateway**. Se pur esista una sottile differenza tra i due termini, di seguito ci riferiremo ad entrambi considerandoli perfettamente sinonimi.
 
