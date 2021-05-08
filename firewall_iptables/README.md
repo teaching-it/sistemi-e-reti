@@ -45,7 +45,7 @@ root@volta:~# iptables --policy OUTPUT DROP
 root@volta:~# iptables --policy FORWARD DROP
 ```
 
-In questo modo verranno rifiutati tutti i tentativi di connessione così come il traffico di rete in transito dalle 3 *chains*.
+In questo modo verranno rifiutati tutti i tentativi di connessione, in ingresso, in uscita o in transito.
 
 ## Responses
 
@@ -53,8 +53,6 @@ Un altro aspetto fondamentale sono i comportamenti (le risposte) che è possibil
 
 1. Accept: acconsente la richiesta di connessione.
 2. Drop: rifiuta "brutalmente" la richiesta.
-3. Reject: non consente la connessione, ed un "pacchetto di cortesia" (ICMP) in risposta.
-
-
+3. Reject: non consente la connessione, ed genera un "pacchetto di cortesia" (ICMP) in risposta.
 
 ### To be continued ... ###
