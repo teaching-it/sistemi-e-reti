@@ -4,7 +4,7 @@ Innanzi tutto, una breve ma efficace definizione (Wikipedia):
 
 *iptables is a user-space utility program that allows a system administrator to configure the IP packet filter rules of the Linux kernel firewall, implemented as different Netfilter modules. The filters are organized in different tables, which contain chains of rules for how to treat network traffic packets. Different kernel modules and programs are currently used for different protocols; iptables applies to IPv4, ip6tables to IPv6, arptables to ARP, and ebtables to Ethernet frames.*
 
-Dunque, iptables è un tool da command line che dialoga direttamente con Netfilter, la componente fondamentale del Kernel Linux che, sua volta, offre numerose operazioni e funzioni di packet filtering e manipolazione del traffico di rete (ad esempio: NAPT, port-forwarding).
+Dunque, iptables è un tool da command line che dialoga direttamente con Netfilter, la componente fondamentale del Kernel Linux che, a sua volta, offre numerose operazioni e funzioni di packet filtering e manipolazione del traffico di rete (ad esempio: NAPT, port-forwarding).
 
 ## Chains
 
@@ -53,6 +53,6 @@ Un altro aspetto fondamentale sono i comportamenti (le risposte) che è possibil
 
 1. Accept: acconsente la richiesta di connessione.
 2. Drop: rifiuta "brutalmente" la richiesta.
-3. Reject: non consente la connessione, ed genera un "pacchetto di cortesia" (ICMP) in risposta.
+3. Reject: non consente la connessione, e genera un "pacchetto di cortesia" (ICMP) in risposta.
 
 ### To be continued ... ###
